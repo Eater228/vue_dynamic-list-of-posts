@@ -18,7 +18,7 @@ const handleDelete = () => {
   <div
     class="is-flex is-justify-content-space-between is-align-items-center"
   >
-    <h2>{{`#post ${selectedPost.id}: post ${selectedPost.title}`}}</h2>
+    <h2>{{`#${selectedPost.id}: ${selectedPost.title}`}}</h2>
     <div class="is-flex">
       <span class="icon is-small is-right is-clickable" @click="onEdit">
         <i class="fas fa-pen-to-square"></i>

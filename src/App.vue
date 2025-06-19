@@ -16,7 +16,7 @@ const handleLogout = () => {
 
 const onLoginSuccess = () => {
   const userData = localStorage.getItem("user");
-  isLoggedIn.value = userData ? JSON.parse(userData) : null;
+  isLoggedIn.value = userData ? true : false;
 };
 
 </script>

@@ -6,6 +6,7 @@ export const getUserByEmail = async (email) => {
     return response;
   } catch (error) {
     console.error('Error fetching user by email:', error);
+    throw error; //new
   }
 };
 
@@ -17,6 +18,7 @@ export const createUser = async ({ name, email }) => {
     });
   } catch (error) {
     console.error('Error creating user:', error);
+    throw error; //new
   }
 }
 

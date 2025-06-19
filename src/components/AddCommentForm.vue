@@ -63,6 +63,13 @@ const handleSubmit = () => {
       emit('addComment', res.data)
       emit('closeCommentForm')
     })
+    .catch((error) => {
+      console.error('Failed to add comment:', error)
+      if (error.response) {
+        console.error('Response status:', error.response.status)
+        console.error('Response data:', error.response.data)
+      }
+    })
     .finally(() => (isLoading.value = false))
 }
 

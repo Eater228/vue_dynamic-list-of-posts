@@ -34,11 +34,11 @@ watch(internalValue, (newValue) => {
     </label>
     <div class="control has-icons-left has-icons-right">
       <input
-        type="type"
-        name="inputName"
-        id="`comment-author-name-${userName}`"
-        placeholder="placeholder"
-        class="{ 'is-danger': error?.length}"
+        :type="type"
+        :name="inputName"
+        :id="`comment-author-name-${userName}`"
+        :placeholder="placeholder"
+        :class="{ 'is-danger': error?.length}"
         v-model="internalValue"
       />
       <span class="icon is-small is-left">

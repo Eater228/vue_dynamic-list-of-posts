@@ -25,16 +25,6 @@ export const addNewComment = async ({postId, name, email, body}) => {
   }
 };
 
-export const updatePost = async (post) => {
-  try {
-    const response = await client.put(`/posts/${post.id}`, { post});
-    return response;
-  } catch (error) {
-    console.error("Error updating post:", error);
-    throw error;
-  }
-};
-
 export const deleteComment = async (commentId) => {
   try {
     const response = await client.delete(`/comments/${commentId}`);

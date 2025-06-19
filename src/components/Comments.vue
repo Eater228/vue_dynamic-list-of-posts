@@ -24,6 +24,7 @@ const handleDelete = (id) => {
     comments.value = comments.value.filter(comment => comment.id !== id);
   }).catch((error) => {
     console.error('Failed to delete comment:', error);
+    errorMessage.value = 'Failed to delete comment';
   });
 }
 

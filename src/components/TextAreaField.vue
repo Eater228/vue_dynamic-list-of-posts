@@ -24,14 +24,13 @@ watch(internalValue, (newValue) => {
 
 <template>
   <div class="field" data-cy="BodyField">
-    <label class="label" htmlFor="{`comment-${name}`}"> {{ title }} </label>
+    <label class="label" :htmlFor="`comment-${name}`"> {{ title }} </label>
     <div class="control">
       <textarea
-        id="`comment-${userName}`"
-        name="userName"
-        placeholder="placeholder"
-        class="textarea"
-        :class="{'is-danger': error?.length}"
+        :id="`comment-${userName}`"
+        :name="userName"
+        :placeholder="placeholder"
+        :class="['textarea', { 'is-danger': error?.length }]"
         v-model="internalValue"
       ></textarea>
     </div>

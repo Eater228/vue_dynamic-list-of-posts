@@ -3,14 +3,17 @@ import { ref, onBeforeMount, defineProps } from 'vue'
 import { getPostsByUserId, deletePost as apiDeletePost } from '../api/posts'
 import Loader from '../loader/Loader.vue';
 import Sidebar from './Sidebar.vue';
+
 const { userId } = defineProps(['userId'])
 const posts = ref([])
 const loading = ref(false);
 const isActiveSidebar = ref(false);
 const selectedPost= ref(null);
+
 const closeSidebar = () => {
   isActiveSidebar.value = false;
 }
+
 const openSidebar = () => {
   isActiveSidebar.value = true;
 }
@@ -18,6 +21,7 @@ const handleAddNewPost = () => {
   selectedPost.value = null;
   openSidebar();
 }
+
 const fetchPosts = async () => {
   loading.value = true;
   try {
@@ -29,6 +33,7 @@ const fetchPosts = async () => {
     loading.value = false;
   }
 }
+
 const openPost = (post) => {
   if (!selectedPost.value || selectedPost.value.id !== post.id) {
     selectedPost.value = post;
@@ -40,16 +45,20 @@ const openPost = (post) => {
     }, 1000)
   }
 }
+
 const addPost = (newPost) => {
   posts.value.push(newPost);
 }
+
 const updatePost = (newPost) => {
-  posts.value.map(post => post.id === newPost.id ? newPost : post);
+  posts.value = posts.value.map(post => post.id === newPost.id ? newPost : post);
 }
+
 const deletePost = async (postId) => {
   await apiDeletePost(postId);
   posts.value = posts.value.filter(post => post.id !== postId);
 }
+
 onBeforeMount(fetchPosts);
 </script>
 
